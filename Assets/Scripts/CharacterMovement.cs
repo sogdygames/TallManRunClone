@@ -9,7 +9,8 @@ public class CharacterMovement : MonoBehaviour
 
     private bool isMoving = false;
 
-    public float widthIncrease = 0.5f;
+
+    
 
     private void Start()
     {
@@ -45,53 +46,6 @@ public class CharacterMovement : MonoBehaviour
 
             rb.MovePosition(transform.position + movement);
         }
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Wide"))
-        {
-            Vector3 scale = transform.localScale;
-            scale.x += widthIncrease;
-
-            Vector3 position = transform.position;
-            float positionAdjustment = (scale.x - transform.localScale.x) / 2.0f;
-            position.x += positionAdjustment;
-
-            transform.localScale = scale;
-            transform.position = position;
-
-            Destroy(other.gameObject);
-        }
-
-        if (other.CompareTag("length"))
-        {
-            Vector3 scale = transform.localScale;
-            scale.y += widthIncrease;
-
-            Vector3 position = transform.position;
-            float positionAdjustment = (scale.y - transform.localScale.y) / 2.0f;
-            position.y += positionAdjustment;
-
-            transform.localScale = scale;
-            transform.position = position;
-
-            Destroy(other.gameObject);
-        }
-
-        if (other.CompareTag("barrier"))
-        {
-            Vector3 scale = transform.localScale;
-            scale.y -= widthIncrease;
-
-            Vector3 position = transform.position;
-            float positionAdjustment = (scale.y + transform.localScale.y) / 2.0f;
-            position.y -= positionAdjustment;
-
-            transform.localScale = scale;
-            transform.position = position;
-        }
-    }
+    } 
 
 }

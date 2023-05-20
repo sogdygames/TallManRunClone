@@ -141,6 +141,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8584173, y: 0.83732265, z: 0.010993004}
   m_Center: {x: -0.002607238, y: 0.5850288, z: -1.2231803}
+--- !u!114 &27482903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27482900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 0
 --- !u!1 &84792654 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3daa9d53997cae243934215892c79348, type: 3}
@@ -173,7 +186,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2bbebf0cf1a95e94fbff08d24baad687, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bbebf0cf1a95e94fbff08d24baad687, type: 3}
       propertyPath: m_LocalScale.x
@@ -682,6 +695,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8584173, y: 0.83732265, z: 0.010993004}
   m_Center: {x: -0.002607238, y: 0.5850288, z: -1.2231803}
+--- !u!114 &501745271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501745269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 1
 --- !u!1 &573518599
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,6 +909,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5482428, y: 0.42461428, z: 0.111008644}
   m_Center: {x: 0.01386714, y: 0.400436, z: 0.009218693}
+--- !u!114 &646320026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646320023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 4
 --- !u!1 &654598344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3daa9d53997cae243934215892c79348, type: 3}
@@ -1016,6 +1055,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8584173, y: 0.83732265, z: 0.010993004}
   m_Center: {x: -0.002607238, y: 0.5850288, z: -1.2231803}
+--- !u!114 &771927646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771927644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 2
 --- !u!1 &915554005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3daa9d53997cae243934215892c79348, type: 3}
@@ -1168,7 +1220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  widthIncrease: 0.5
 --- !u!1001 &1044596704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1726,6 +1777,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8584173, y: 0.83732265, z: 0.010993004}
   m_Center: {x: -0.002607238, y: 0.5850288, z: -1.2231803}
+--- !u!114 &1687437289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687437287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: 3
 --- !u!1 &1697943493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3daa9d53997cae243934215892c79348, type: 3}
@@ -2107,7 +2171,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2bbebf0cf1a95e94fbff08d24baad687, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bbebf0cf1a95e94fbff08d24baad687, type: 3}
       propertyPath: m_LocalScale.x
