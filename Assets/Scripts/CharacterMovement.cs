@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    public float speed = 5f;  // Speed of character movement
+    public float speed = 5f;
+    private Rigidbody rb;
 
     private bool isMoving = false;
-    private bool isMovingLeft = false;
+
+    public float widthIncrease = 0.5f;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            isMoving = true;        
+            isMoving = true;
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -21,28 +28,66 @@ public class CharacterMovement : MonoBehaviour
             isMoving = false;
         }
 
-
-        
-
-        
-
         if (isMoving)
         {
-            
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Vector3 movement = Vector3.forward * speed * Time.deltaTime;
 
             if (Input.mousePosition.x < Screen.width / 2)
             {
-
-                isMovingLeft = true;
-                transform.Translate(Vector3.left * speed * Time.deltaTime);
+                
+                movement += Vector3.left * speed * Time.deltaTime;
             }
             else
             {
-
-                isMovingLeft = false;
-                transform.Translate(Vector3.right * speed * Time.deltaTime);
+                
+                movement += Vector3.right * speed * Time.deltaTime;
             }
+
+            rb.MovePosition(transform.position + movement);
         }
     }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wide"))
+        {
+            Vector3 scale = transform.localScale;
+            scale.x += widthIncrease;
+
+            Vector3 position = transform.position;
+            float positionAdjustment = (scale.x - transform.localScale.x) / 2.0f;
+            position.x += positionAdjustment;
+
+            transform.localScale = scale;
+            transform.position = position;
+        }
+
+        if (other.CompareTag("length"))
+        {
+            Vector3 scale = transform.localScale;
+            scale.y += widthIncrease;
+
+            Vector3 position = transform.position;
+            float positionAdjustment = (scale.y - transform.localScale.y) / 2.0f;
+            position.y += positionAdjustment;
+
+            transform.localScale = scale;
+            transform.position = position;
+        }
+
+        if (other.CompareTag("barrier"))
+        {
+            Vector3 scale = transform.localScale;
+            scale.y -= widthIncrease;
+
+            Vector3 position = transform.position;
+            float positionAdjustment = (scale.y + transform.localScale.y) / 2.0f;
+            position.y -= positionAdjustment;
+
+            transform.localScale = scale;
+            transform.position = position;
+        }
+    }
+
 }

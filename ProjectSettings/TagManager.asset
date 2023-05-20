@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - 'width '
+  - length
+  - Wide
+  - barrier
   layers:
   - Default
   - TransparentFX
