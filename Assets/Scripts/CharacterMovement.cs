@@ -61,6 +61,8 @@ public class CharacterMovement : MonoBehaviour
 
             transform.localScale = scale;
             transform.position = position;
+
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("length"))
@@ -74,6 +76,8 @@ public class CharacterMovement : MonoBehaviour
 
             transform.localScale = scale;
             transform.position = position;
+
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("barrier"))
