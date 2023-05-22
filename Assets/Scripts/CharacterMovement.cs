@@ -9,7 +9,8 @@ public class CharacterMovement : MonoBehaviour
 
     private bool isMoving = false;
 
-
+    public GameObject body;
+    
     
 
     private void Start()
@@ -19,6 +20,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        Vector3 Body = body.transform.localScale;
+
         if (Input.GetMouseButtonDown(0))
         {
             isMoving = true;
@@ -46,6 +49,12 @@ public class CharacterMovement : MonoBehaviour
 
             rb.MovePosition(transform.position + movement);
         }
+
+        if (Body.y == 0)
+        {
+            Debug.Log("oldu");
+        }
+        
     } 
 
 }
