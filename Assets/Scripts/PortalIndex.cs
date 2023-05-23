@@ -1,57 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PortalIndex : MonoBehaviour
 {
-     public int index;
+     public int index; //portallarý numaralandýrdým
     
-    public static float Increase = 0.5f;
+    public static float Increase = 0.1f;
 
     private void OnTriggerEnter(Collider other)
     {
-        Vector3 scale = other.transform.localScale;
+        Vector3 width = other.transform.localScale;
+        Vector3 length = other.transform.localPosition;
 
         if (other.CompareTag("body")) //Uzunluk 
         {
 
 
+            if (index == 75)
+            {
+                length.y += Increase * 7.5f ;
+                other.transform.localPosition = length;
+                Destroy(gameObject);
+            }
+
+            if (index == 50)
+            {
+                length.y += Increase * 5.0f;
+                other.transform.localPosition = length;
+                Destroy(gameObject);
+            }
+
             if (index == 2)
             {
-                scale.y += Increase;
-                other.transform.localScale = scale;
+                length.y *= Increase * 5f;
+                other.transform.localPosition = length;
                 Destroy(gameObject);
             }
 
-            if (index == 3)
+            if (index == 0) //bariyer
             {
-                scale.y -= Increase;
-                other.transform.localScale = scale;
-                Destroy(gameObject);
-            }
-
-            if (index == 4) //bariyer
-            {
-                scale.y -= Increase;
-                other.transform.localScale = scale;
+                length.y -= Increase * 4;
+                other.transform.localPosition = length;
             }
         }
 
         else //genislik 
         {
-            if (index == 0)
+            if (index == 15)
             {
-                scale.x += Increase * 2; 
-                other.transform.localScale = scale;
+                width.x += Increase * 1.5f; 
+                other.transform.localScale = width;
                 Destroy(gameObject);
             }
+    
+        }
 
-            if (index == 1)
-            {
-                scale.x -= Increase;
-                other.transform.localScale = scale;
-                Destroy(gameObject);
-            }
+        if (length.y <=0)
+        {
+            Debug.Log("Öldün");
         }
     }
+
+    
 }
