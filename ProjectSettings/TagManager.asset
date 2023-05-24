@@ -9,6 +9,7 @@ TagManager:
   - Wide
   - barrier
   - body
+  - jump
   layers:
   - Default
   - TransparentFX

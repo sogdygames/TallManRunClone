@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform character;  
-    private Vector3 offset;      
+    public Transform character;
+    private Vector3 offset;
+    private bool isFollowing; 
 
     private void Start()
     {
-        
         offset = transform.position - character.position;
+        isFollowing = true; 
     }
 
     private void LateUpdate()
     {
-        
-        transform.position = character.position + offset;
+        if (isFollowing)
+            transform.position = character.position + offset;
+    }
+
+    
+    public void StopFollowing()
+    {
+        isFollowing = false;
     }
 }

@@ -8,7 +8,14 @@ public class PortalIndex : MonoBehaviour
      public int index; //portallarý numaralandýrdým
     
     public static float Increase = 0.1f;
+    public GameObject character;
 
+    private CameraFollow cameraFollow;
+
+    private void Start()
+    {
+        cameraFollow = FindObjectOfType<CameraFollow>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         Vector3 width = other.transform.localScale;
@@ -59,6 +66,11 @@ public class PortalIndex : MonoBehaviour
 
         if (length.y <=0)
         {
+            Destroy(character);
+            if (cameraFollow != null)
+            {
+                cameraFollow.StopFollowing();
+            }
             Debug.Log("Öldün");
         }
     }
