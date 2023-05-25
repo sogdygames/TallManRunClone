@@ -58,9 +58,9 @@ public class CharacterMovement : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other) //karakterin zýplamasý
+    private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("jump") && !isJumping)
+        if (other.CompareTag("jump") && !isJumping) //karakterin zýplamasý
         {
             
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -68,6 +68,12 @@ public class CharacterMovement : MonoBehaviour
             isJumping = true;
             isMoving= false;
             
+        }
+
+        if (other.CompareTag("Diamond")) //elmas toplanmasý
+        {
+            ScoreCounter.scoreValue++;
+            Destroy(other.gameObject);
         }
     }
 

@@ -10,6 +10,7 @@ TagManager:
   - barrier
   - body
   - jump
+  - Diamond
   layers:
   - Default
   - TransparentFX
