@@ -11,6 +11,7 @@ TagManager:
   - body
   - jump
   - Diamond
+  - LongJump
   layers:
   - Default
   - TransparentFX

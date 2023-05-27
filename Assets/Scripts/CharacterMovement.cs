@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public GameObject body;
 
     public float jumpForce = 5f;        
-    public float sidewayForce = 2f;     
+    public float fowardForce = 2f;     
     private bool isJumping = false;
 
 
@@ -64,10 +64,20 @@ public class CharacterMovement : MonoBehaviour
         {
             
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * sidewayForce, ForceMode.Impulse); 
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce, ForceMode.Impulse); 
             isJumping = true;
             isMoving= false;
             
+        }
+
+        if (other.CompareTag("LongJump") && !isJumping) //karakterin zýplamasý
+        {
+
+            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce * 2, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce * 5, ForceMode.Impulse);
+            isJumping = true;
+            isMoving = false;
+
         }
 
         if (other.CompareTag("Diamond")) //elmas toplanmasý
