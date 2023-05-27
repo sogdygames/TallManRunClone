@@ -5,10 +5,12 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float speed = 5f;
-    private Rigidbody rb;
+    public float SideSpeed = 1f;
+    public Rigidbody rb;
 
     private bool isMoving = false;
-    public GameObject body;
+
+    public static Vector3 currentPosition;
 
     public float jumpForce = 5f;        
     public float fowardForce = 2f;     
@@ -16,46 +18,39 @@ public class CharacterMovement : MonoBehaviour
 
 
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentPosition = transform.position;
     }
 
     private void Update()
     {
-        Vector3 Body = body.transform.localScale;
 
-        
+        if (Input.GetMouseButtonDown(0))
+        {
+            isMoving = true;
+        }   
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                isMoving = true;
-            }
+        if (Input.GetMouseButtonUp(0))
+        {
+            isMoving = false;
+        }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                isMoving = false;
-            }
+        if (isMoving)
+        {
+            Vector3 movement = Vector3.forward * speed * Time.deltaTime;
 
-            if (isMoving)
-            {
-                Vector3 movement = Vector3.forward * speed * Time.deltaTime;
-
-                if (Input.mousePosition.x < Screen.width / 2)
-                {
-
-                    movement += Vector3.left * speed * Time.deltaTime;
-                }
-                else
-                {
-
-                    movement += Vector3.right * speed * Time.deltaTime;
-                }
+            
+                Touch touch = Input.GetTouch(0);
+                float touchDelta = touch.deltaPosition.x * Time.deltaTime * SideSpeed;
+                Vector3 newPos = transform.position + movement + new Vector3(touchDelta, 0f, 0f);
+                transform.position = newPos;
+                currentPosition = newPos;
 
                 rb.MovePosition(transform.position + movement);
-            }
-
-        
+        }
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -65,7 +60,7 @@ public class CharacterMovement : MonoBehaviour
             
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce, ForceMode.Impulse); 
-            isJumping = true;
+            
             isMoving= false;
             
         }
@@ -74,9 +69,9 @@ public class CharacterMovement : MonoBehaviour
         {
 
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce * 2, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce * 5, ForceMode.Impulse);
-            isJumping = true;
-            isMoving = false;
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce * 2, ForceMode.Impulse);
+           
+            isMoving= false;
 
         }
 
