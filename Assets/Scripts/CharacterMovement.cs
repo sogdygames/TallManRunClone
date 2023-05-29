@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -10,6 +11,7 @@ public class CharacterMovement : MonoBehaviour
 
     private bool isMoving = false;
     private bool isFinal = false;
+    Animator anim;
 
     public static Vector3 currentPosition;
 
@@ -23,7 +25,8 @@ public class CharacterMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
+        currentPosition = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,17 +35,21 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isMoving = true;
+            anim.SetBool("isMoving" ,isMoving);
+            
         }   
 
         if (Input.GetMouseButtonUp(0))
         {
             isMoving = false;
+            anim.SetBool("isMoving", isMoving);
         }
 
         if (isMoving)
         {
-                Vector3 movement = Vector3.forward * speed * Time.deltaTime;
+            Vector3 movement = Vector3.forward * speed * Time.deltaTime;
 
+            
                 Touch touch = Input.GetTouch(0);
                 float touchDelta = touch.deltaPosition.x * Time.deltaTime * SideSpeed;
                 Vector3 newPos = transform.position + movement + new Vector3(touchDelta, 0f, 0f);
@@ -51,29 +58,27 @@ public class CharacterMovement : MonoBehaviour
 
                 rb.MovePosition(transform.position + movement);
         }
-
+       
         if(isFinal)
         {
-            isMoving= false;
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
             currentPosition = transform.position;
+            anim.SetBool("isMoving", isMoving);
         }
-
         
     }
-
-   
+            
+            
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("jump") && !isJumping) //karakterin z�plamas�
+        if (other.CompareTag("jump") && !isJumping && !gameObject.CompareTag("body")) //karakterin z�plamas�
         {
             
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce, ForceMode.Impulse);
-            currentPosition = transform.position;
-
-            isMoving = false;
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce, ForceMode.Impulse); 
+            
+            isMoving= false;
             
         }
 
@@ -82,9 +87,8 @@ public class CharacterMovement : MonoBehaviour
 
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce * 2, ForceMode.Impulse);
             GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce * 2, ForceMode.Impulse);
-            currentPosition = transform.position;
-
-            isMoving = false;
+           
+            isMoving= false;
 
         }
 
@@ -96,10 +100,9 @@ public class CharacterMovement : MonoBehaviour
 
         if (other.CompareTag("LastRun"))
         {
-        
-            isFinal= true;
-                
+            isFinal = true;
             
+           
         }
     }
 

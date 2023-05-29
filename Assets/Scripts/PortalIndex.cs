@@ -30,14 +30,14 @@ public class PortalIndex : MonoBehaviour
 
             if (index == 75)
             {
-                length.y += Increase * 7.5f ;
+                length.y += Increase * 3f ;
                 other.transform.localPosition = length;
                 Destroy(gameObject);
             }
 
             if (index == 50)
             {
-                length.y += Increase * 5.0f;
+                length.y += Increase * 2.5f;
                 other.transform.localPosition = length;
                 Destroy(gameObject);
             }
@@ -51,7 +51,7 @@ public class PortalIndex : MonoBehaviour
 
             if (index == 0) //bariyer
             {
-                length.y -= Increase * 4;
+                length.y -= Increase * 2f;
                 other.transform.localPosition = length;
             }
         }
@@ -60,7 +60,7 @@ public class PortalIndex : MonoBehaviour
         {
             if (index == 15)
             {
-                width.x += Increase * 1.5f; 
+                width.x += Increase * 3f; 
                 other.transform.localScale = width;
                 Destroy(gameObject);
             }
