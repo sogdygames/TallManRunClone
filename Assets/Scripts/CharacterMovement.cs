@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public Rigidbody rb;
 
     private bool isMoving = false;
+    private bool isFinal = false;
 
     public static Vector3 currentPosition;
 
@@ -22,7 +23,7 @@ public class CharacterMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentPosition = transform.position;
+        
     }
 
     private void Update()
@@ -40,45 +41,65 @@ public class CharacterMovement : MonoBehaviour
 
         if (isMoving)
         {
-            Vector3 movement = Vector3.forward * speed * Time.deltaTime;
+                Vector3 movement = Vector3.forward * speed * Time.deltaTime;
 
-            
                 Touch touch = Input.GetTouch(0);
                 float touchDelta = touch.deltaPosition.x * Time.deltaTime * SideSpeed;
                 Vector3 newPos = transform.position + movement + new Vector3(touchDelta, 0f, 0f);
                 transform.position = newPos;
-                currentPosition = newPos;
+                currentPosition = transform.position;
 
                 rb.MovePosition(transform.position + movement);
         }
+
+        if(isFinal)
+        {
+            isMoving= false;
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            currentPosition = transform.position;
+        }
+
+        
     }
+
+   
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (other.CompareTag("jump") && !isJumping) //karakterin zýplamasý
+        if (other.CompareTag("jump") && !isJumping) //karakterin zï¿½plamasï¿½
         {
             
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce, ForceMode.Impulse); 
-            
-            isMoving= false;
+            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce, ForceMode.Impulse);
+            currentPosition = transform.position;
+
+            isMoving = false;
             
         }
 
-        if (other.CompareTag("LongJump") && !isJumping) //karakterin zýplamasý
+        if (other.CompareTag("LongJump") && !isJumping) //karakterin zï¿½plamasï¿½
         {
 
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce * 2, ForceMode.Impulse);
             GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce * 2, ForceMode.Impulse);
-           
-            isMoving= false;
+            currentPosition = transform.position;
+
+            isMoving = false;
 
         }
 
-        if (other.CompareTag("Diamond")) //elmas toplanmasý
+        if (other.CompareTag("Diamond")) //elmas toplanmasï¿½
         {
             ScoreCounter.scoreValue++;
             Destroy(other.gameObject);
+        }
+
+        if (other.CompareTag("LastRun"))
+        {
+        
+            isFinal= true;
+                
+            
         }
     }
 

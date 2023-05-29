@@ -70,12 +70,11 @@ public class PortalIndex : MonoBehaviour
         if (length.y <=0) //karakterin ölmesi
         {
               
-           if (CharacterMovement.currentPosition != null && CharacterMovement.currentPosition != null)
-           {      
+                 
              Instantiate(Head, new Vector3(CharacterMovement.currentPosition.x, 3.7f, CharacterMovement.currentPosition.z)  , Quaternion.identity);
              
-            }
-                
+            
+               
             Destroy(character);
 
             if (cameraFollow != null)
