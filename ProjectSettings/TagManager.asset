@@ -13,6 +13,7 @@ TagManager:
   - Diamond
   - LongJump
   - LastRun
+  - ground
   layers:
   - Default
   - TransparentFX

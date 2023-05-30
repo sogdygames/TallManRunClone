@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 public class PortalIndex : MonoBehaviour
 {
-     public int index; //portallarý numaralandýrdým
-    
-    public static float Increase = 0.1f;
+    public int index; //portallarý numaralandýrdým
+
+    public float value = 0.1f;
     public GameObject character;
     public GameObject Head;
 
@@ -26,33 +26,32 @@ public class PortalIndex : MonoBehaviour
 
         if (other.CompareTag("body")) //Uzunluk 
         {
-
-
             if (index == 75)
             {
-                length.y += Increase * 3f ;
+                length.y += value;
                 other.transform.localPosition = length;
                 Destroy(gameObject);
             }
 
             if (index == 50)
             {
-                length.y += Increase * 2.5f;
+                length.y += value;
                 other.transform.localPosition = length;
                 Destroy(gameObject);
             }
 
             if (index == 2)
             {
-                length.y *= Increase * 5f;
+                length.y *= 0.5f;
                 other.transform.localPosition = length;
                 Destroy(gameObject);
             }
 
             if (index == 0) //bariyer
             {
-                length.y -= Increase * 2f;
+                length.y -= value;
                 other.transform.localPosition = length;
+
             }
         }
 
@@ -60,30 +59,27 @@ public class PortalIndex : MonoBehaviour
         {
             if (index == 15)
             {
-                width.x += Increase * 3f; 
+                width.x += value;
+                width.z += value;
                 other.transform.localScale = width;
                 Destroy(gameObject);
             }
-    
+
         }
 
-        if (length.y <=0) //karakterin ölmesi
+        if (length.y <= 0 ) //karakterin ölmesi
         {
-              
-                 
-             Instantiate(Head, new Vector3(CharacterMovement.currentPosition.x, 3.7f, CharacterMovement.currentPosition.z)  , Quaternion.identity);
-             
-            
-               
+            Instantiate(Head, new Vector3(CharacterMovement.currentPosition.x, 3.7f, CharacterMovement.currentPosition.z), Quaternion.identity);
+
             Destroy(character);
 
             if (cameraFollow != null)
             {
                 cameraFollow.StopFollowing();
             }
-            Debug.Log("Öldün");
+
         }
     }
 
-    
+
 }
