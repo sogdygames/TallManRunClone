@@ -11,13 +11,16 @@ public class PortalIndex : MonoBehaviour
     public GameObject character;
     public GameObject Head;
 
-    private CameraFollow cameraFollow;
+    public static CameraFollow cameraFollow;
+
+
 
     public float fowardForce = 10f;
 
     private void Start()
     {
         cameraFollow = FindObjectOfType<CameraFollow>();
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -55,6 +58,7 @@ public class PortalIndex : MonoBehaviour
             }
         }
 
+        
         else //genislik 
         {
             if (index == 15)
@@ -67,7 +71,7 @@ public class PortalIndex : MonoBehaviour
 
         }
 
-        if (length.y <= 0 ) //karakterin ölmesi
+        if (length.y <= -0.2f) //karakterin ölmesi
         {
             Instantiate(Head, new Vector3(CharacterMovement.currentPosition.x, 3.7f, CharacterMovement.currentPosition.z), Quaternion.identity);
 

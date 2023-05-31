@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform character;
     private Vector3 offset;
-    private bool isFollowing; 
+    public static bool isFollowing; 
 
     private void Start()
     {
