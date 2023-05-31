@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 50
+  index: 3
   value: 0.2
   character: {fileID: 1218934012}
   Head: {fileID: 5494294239199454304, guid: 539d51389bdbac4458ee643fd926acfc, type: 3}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 75
+  index: 3
   value: 0.3
   character: {fileID: 1218934012}
   Head: {fileID: 5494294239199454304, guid: 539d51389bdbac4458ee643fd926acfc, type: 3}
@@ -2787,7 +2787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 15
+  index: 1
   value: 0.5
   character: {fileID: 1218934012}
   Head: {fileID: 5494294239199454304, guid: 539d51389bdbac4458ee643fd926acfc, type: 3}
@@ -7723,7 +7723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa4b2134f9d57b4999554fec0fbaa70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 15
+  index: 1
   value: 0.5
   character: {fileID: 1218934012}
   Head: {fileID: 5494294239199454304, guid: 539d51389bdbac4458ee643fd926acfc, type: 3}

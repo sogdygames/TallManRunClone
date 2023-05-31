@@ -29,14 +29,14 @@ public class PortalIndex : MonoBehaviour
 
         if (other.CompareTag("body")) //Uzunluk 
         {
-            if (index == 75)
+            if (index == 4)
             {
-                length.y += value;
+                length.y -= value;
                 other.transform.localPosition = length;
                 Destroy(gameObject);
             }
 
-            if (index == 50)
+            if (index == 3)
             {
                 length.y += value;
                 other.transform.localPosition = length;
@@ -52,7 +52,7 @@ public class PortalIndex : MonoBehaviour
 
             if (index == 0) //bariyer
             {
-                length.y -= value;
+                length.y -= value * 2;
                 other.transform.localPosition = length;
 
             }
@@ -61,7 +61,7 @@ public class PortalIndex : MonoBehaviour
         
         else //genislik 
         {
-            if (index == 15)
+            if (index == 1)
             {
                 width.x += value;
                 width.z += value;
