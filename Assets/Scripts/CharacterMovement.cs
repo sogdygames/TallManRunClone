@@ -104,8 +104,8 @@ public class CharacterMovement : MonoBehaviour
             isMoving = false;
             onGround = false;
 
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce * 2, ForceMode.Impulse);
-            GetComponent<Rigidbody>().AddForce(Vector3.forward * fowardForce * 2, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(2 * jumpForce * Vector3.up, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(2 * fowardForce * Vector3.forward, ForceMode.Impulse);
 
             anim.SetBool("isMoving", false);
             anim.SetTrigger("isJump");

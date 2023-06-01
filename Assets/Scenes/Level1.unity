@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11464222, g: 0.3301195, b: 0.7125536, a: 1}
+  m_IndirectSpecularColor: {r: 0.11463373, g: 0.33009413, b: 0.71203697, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12428,7 +12428,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1094723067}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: "T\u0131klama"
+        m_MethodName: Tiklama
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
