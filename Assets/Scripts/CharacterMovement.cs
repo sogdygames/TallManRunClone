@@ -18,10 +18,13 @@ public class CharacterMovement : MonoBehaviour
 
     public float jumpForce = 5f;
     public float fowardForce = 2f;
-    
+
+
+
 
     private void Start()
     {
+
         rb = GetComponent<Rigidbody>();
         currentPosition = transform.position;
         anim = GetComponent<Animator>();
@@ -29,7 +32,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -82,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("jump")  && !gameObject.CompareTag("body") && onGround) //karakterin ziplamasi
+        if (other.CompareTag("jump") && !gameObject.CompareTag("body") && onGround) //karakterin ziplamasi
         {
             isMoving = false;
             onGround = false;
@@ -93,7 +96,7 @@ public class CharacterMovement : MonoBehaviour
             anim.SetBool("isMoving", false);
             anim.speed = 0.65f;
             anim.SetTrigger("isJump");
-           
+
         }
 
         if (other.CompareTag("LongJump") && !gameObject.CompareTag("body") && onGround) //karakterin ziplamasi

@@ -10,6 +10,8 @@ public class PortalIndex : MonoBehaviour
     public float value = 0.1f;
     public GameObject character;
     public GameObject Head;
+    public GameObject DeathPanel;
+   
 
     public static CameraFollow cameraFollow;
 
@@ -27,7 +29,7 @@ public class PortalIndex : MonoBehaviour
         Vector3 width = other.transform.localScale;
         Vector3 length = other.transform.localPosition;
 
-        if (other.CompareTag("body")) //Uzunluk 
+        if (other.CompareTag("body") && !other.CompareTag("Player")) //Uzunluk 
         {
             if (index == 4)
             {
@@ -77,6 +79,7 @@ public class PortalIndex : MonoBehaviour
 
             Destroy(character);
 
+            DeathPanel.SetActive(true);
             if (cameraFollow != null)
             {
                 cameraFollow.StopFollowing();
